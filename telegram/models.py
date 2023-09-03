@@ -1,4 +1,4 @@
-from compositefk.fields import CompositeForeignKey
+
 from django.db import models
 
 import core.models
@@ -13,11 +13,7 @@ class TelegramChat(core.models.Log):
     description = models.CharField(max_length=512)
     type_code = models.CharField(null=True, max_length=255, default='group')
     type_config = models.CharField(null=True, max_length=255, default='TELEGRAM-CHAT')
-    type = CompositeForeignKey('core.Config', on_delete=models.DO_NOTHING, null=True,
-                               related_name='%(app_label)s_%(class)s_type', to_fields={
-            "code": "type_code",
-            "config": "type_config"
-        })
+
 
     class Meta:
         db_table = 'telegram_chat'
