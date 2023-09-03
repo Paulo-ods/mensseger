@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'messenger.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'messenger',
-        'USER': 'messenger',
+        'NAME': 'postgres',
+        'USER': 'postgres',
         'PASSWORD': '32654808@Aa',
-        'HOST': 'localhost',
+        'HOST': 'db.npfboerqmhcvbjoiibso.supabase.co',
         'PORT': '5432',
         }
     }
