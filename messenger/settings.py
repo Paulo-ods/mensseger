@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'messenger',
         'USER': 'messenger',
         'PASSWORD': '32654808@Aa',
-        'HOST': 'db.npfboerqmhcvbjoiibso.supabase.co',
+        'HOST': 'localhost',
         'PORT': '5432',
         }
     }
