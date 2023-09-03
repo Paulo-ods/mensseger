@@ -15,11 +15,12 @@ class TelegramView(APIView):
         }
 
         return render(self.request, 'home.html', context)
+
+
 # Create your views here.
 class SendMessageTelegramView(APIView):
 
     def get(self, *args, **kwargs):
-
         status, description, data = BO.telegramBO.telegram.TelegramBO().send_messenge_telegram()
         response = {
             'status': True,
