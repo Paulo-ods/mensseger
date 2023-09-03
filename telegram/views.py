@@ -4,11 +4,15 @@ from django.shortcuts import render
 import requests
 
 import BO.telegramBO.telegram
+import core.models
+
 
 class TelegramView(APIView):
 
     def get(self, *args, **kwargs):
-        context = {}
+        context = {
+            'message': core.models.Config.objects.filter(code='html').values('description').first()
+        }
 
         return render(self.request, 'home.html', context)
 # Create your views here.
