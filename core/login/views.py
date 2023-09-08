@@ -25,7 +25,7 @@ class LoginUserView(APIView):
                 token = jwt.encode(payload, settings.SECRET_KEY)
                 user_details['name'] = "%s %s" % (
                     user.nm_first, user.nm_last)
-                user_details['token'] = token
+                user_details['token'] = token.decode('utf-8')
                 user_logged_in.send(sender=user.__class__,
                                     request=request, user=user)
 
@@ -33,7 +33,9 @@ class LoginUserView(APIView):
                 response = {
                     'user': user_details['name'],
                     'token': user_details['token'],
+                    'first_screen': 'telegram',
                     'status': status.HTTP_200_OK
+
                 }
                 return JsonResponse(response, safe=False)
             except Exception as e:

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'whatsapp',
     'telegram',
     'core',
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,9 +61,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
-CORS_ORIGIN_WHITELIST = ['*']
+# CORS_ORIGIN_WHITELIST = ['localhost', '127.0.0.1']
 
-CORS_ALLOW_HEADERS = default_headers
+CORS_ALLOW_HEADERS = '*' #default_headers
 # APPEND_SLASH=False
 
 CORS_ORIGIN_ALLOW_ALL = True
