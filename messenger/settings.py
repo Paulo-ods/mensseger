@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'whatsapp',
     'telegram',
     'core',
+    'core.login',
+    'core.license',
     'user',
     'user.user_login'
 ]
