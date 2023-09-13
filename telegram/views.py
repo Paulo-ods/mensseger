@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 import requests
 
@@ -21,7 +21,7 @@ class TelegramView(APIView):
 class SendMessageTelegramView(APIView):
 
     def get(self, *args, **kwargs):
-        status, description, data = BO.telegramBO.telegram.TelegramBO().send_messenge_telegram()
+        status, description, data = BO.telegramBO.telegram.TelegramBO().send_messenge_telegram(category='test_message')
         response = {
             'status': True,
             'descricao': description,
@@ -29,3 +29,13 @@ class SendMessageTelegramView(APIView):
         }
 
         return JsonResponse(response, safe=True)
+
+
+class WebHookTelegramView(APIView):
+    def post(self, *args, **kwargs):
+        print(self.request.data)
+        status, description, data = BO.telegramBO.telegram.TelegramBO().send_messenge_welcome_telegram(
+            category='welcome_message', data=self.request.data
+        )
+
+        return HttpResponse({'status': 'true', 'messege': 'worked'})

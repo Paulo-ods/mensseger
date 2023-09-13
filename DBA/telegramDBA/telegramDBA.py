@@ -6,9 +6,9 @@ class TelegramDBA:
         pass
 
     @staticmethod
-    def get_list_message_group():
+    def get_list_message_group(category=None):
         messages = list(telegram.models.TelegramMessages.objects.filter(
-            status=True, category='test_message'
+            status=True, category=category
         ).values_list(
             'message', flat=True
         ))

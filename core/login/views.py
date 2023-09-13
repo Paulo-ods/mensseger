@@ -33,7 +33,7 @@ class LoginUserView(APIView):
                 response = {
                     'user': user_details['name'],
                     'token': user_details['token'],
-                    'first_screen': 'telegram',
+                    'first_screen': 'usuario',
                     'status': status.HTTP_200_OK
 
                 }
