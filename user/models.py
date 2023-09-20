@@ -1,4 +1,3 @@
-from compositefk.fields import CompositeForeignKey
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import UserManager, Permission, Group, PermissionsMixin
 from django.utils.translation import gettext_lazy as _

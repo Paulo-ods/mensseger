@@ -36,9 +36,9 @@ class TelegramBO(IntegrationBO, IntegrationDBA, TelegramDBA):
     def send_messenge_welcome_telegram(self, category=None, data=None):
         descricao = ''
         try:
-
-            if data['message'].get('new_chat_participant'):
-
+            if data['chat']:
+                pass
+            if data['message']:
                 token = self.get_token(module='telegram', name='telegram_path')
                 path = self.get_path(module='telegram', name='telegram_path')
                 url = f"{path}bot{token}/sendMessage"

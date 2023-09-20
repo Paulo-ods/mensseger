@@ -32,3 +32,15 @@ class IntegrationKeys(Log):
 
     class Meta:
         db_table = 'integration_keys'
+
+
+class Hour(Log):
+    cd_hour_minute = models.IntegerField(primary_key=True)
+    description = models.CharField(max_length=200, null=True)
+    hour = models.IntegerField(null=True)
+    minute = models.IntegerField(null=True)
+    hour_minute = models.TimeField(null=True)
+
+
+    class Meta:
+        db_table = 'hour'

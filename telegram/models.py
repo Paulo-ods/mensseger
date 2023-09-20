@@ -31,7 +31,16 @@ class TelegramMessagesCategory(core.models.Log):
 
 class TelegramMessages(core.models.Log):
     message = models.CharField(max_length=4096, null=True)
-    category = models.ForeignKey('TelegramMessagesCategory',  on_delete=models.DO_NOTHING, null=True, related_name='category_message')
+    category = models.ForeignKey('TelegramMessagesCategory', on_delete=models.DO_NOTHING, null=True,
+                                 related_name='category_message')
 
     class Meta:
         db_table = 'telegram_messages'
+
+
+class TelegramMessagesHourRelation(core.models.Log):
+    hour = models.ForeignKey('core.Hour', on_delete=models.DO_NOTHING, null=True)
+    message = models.ForeignKey('TelegramMessages', on_delete=models.DO_NOTHING, null=True)
+
+    class Meta:
+        db_table = 'telegram_message_hour'
