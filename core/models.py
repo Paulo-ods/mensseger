@@ -41,6 +41,14 @@ class Hour(Log):
     minute = models.IntegerField(null=True)
     hour_minute = models.TimeField(null=True)
 
-
     class Meta:
         db_table = 'hour'
+
+
+class Module(Log):
+    module = models.CharField(max_length=255, primary_key=True)
+    description = models.CharField(max_length=512, null=True)
+    module_parent = models.ForeignKey('self', on_delete=models.DO_NOTHING, null=True, related_name='self_module')
+
+    class Meta:
+        db_table = 'module'

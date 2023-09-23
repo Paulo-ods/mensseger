@@ -33,10 +33,3 @@ class LicensePayment(core.models.Log):
         db_table = 'license_payment'
 
 
-class LicenseModule(core.models.Log):
-    module = models.CharField(max_length=255, primary_key=True)
-    description = models.CharField(max_length=512, null=True)
-    module_parent = models.ForeignKey('self', on_delete=models.DO_NOTHING, null=True)
-
-    class Meta:
-        db_table = 'license_module'

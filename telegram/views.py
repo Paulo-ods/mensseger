@@ -10,11 +10,12 @@ import core.models
 class TelegramView(APIView):
 
     def get(self, *args, **kwargs):
-        context = {
+        self.request.GET.get('user_id')
+        response = {
             'message': core.models.Config.objects.filter(code='html').values('description').first()
         }
 
-        return render(self.request, 'home.html', context)
+        return JsonResponse(response, safe=False)
 
 
 # Create your views here.

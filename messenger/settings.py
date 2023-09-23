@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'core',
     'core.login',
     'core.license',
+    'core.system',
+    'core.system.permission',
     'user',
     'user.user_login'
 ]
