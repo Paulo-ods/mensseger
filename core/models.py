@@ -13,7 +13,7 @@ class Log(models.Model):
 
 
 class LogLicense(Log):
-    license = models.ForeignKey('license.License', on_delete=models.DO_NOTHING, related_name='license_user')
+    license = models.ForeignKey('license.License', on_delete=models.DO_NOTHING, null=True)
 
     class Meta:
         abstract = True

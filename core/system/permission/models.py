@@ -3,7 +3,7 @@ from django.db import models
 import core.models
 
 
-class Permission(core.models.Log):
+class Permission(core.models.LogLicense):
     permission = models.CharField(max_length=255, primary_key=True)
     description = models.CharField(max_length=512, null=True)
     order = models.IntegerField(null=True)
@@ -15,7 +15,7 @@ class Permission(core.models.Log):
         db_table = 'system_permission'
 
 
-class Group(core.models.Log):
+class Group(core.models.LogLicense):
     group = models.CharField(max_length=255, primary_key=True)
     description = models.CharField(max_length=512, null=True)
     order = models.IntegerField(null=True)
@@ -25,7 +25,7 @@ class Group(core.models.Log):
         db_table = 'system_group'
 
 
-class PermissionGroup(core.models.Log):
+class PermissionGroup(core.models.LogLicense):
     permission = models.ForeignKey('Permission', on_delete=models.DO_NOTHING, null=True,
                                    related_name='permission_group')
     group = models.ForeignKey('Group', on_delete=models.DO_NOTHING, null=True, related_name='group_permission')

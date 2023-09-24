@@ -12,6 +12,9 @@ class License(core.models.Log):
     category = models.ForeignKey('LicenseCategory', on_delete=models.DO_NOTHING, null=True)
     active = models.CharField(default=False)
     payment = models.ForeignKey('LicensePayment', on_delete=models.DO_NOTHING, null=True)
+    account_people = models.IntegerField()
+    owner_account = models.ForeignKey('user_login.User', on_delete=models.DO_NOTHING, null=True, related_name='user_owner')
+
 
     class Meta:
         db_table = 'license'
@@ -31,5 +34,6 @@ class LicenseCategory(core.models.Log):
 class LicensePayment(core.models.Log):
     class Meta:
         db_table = 'license_payment'
+
 
 
