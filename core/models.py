@@ -12,6 +12,13 @@ class Log(models.Model):
         abstract = True
 
 
+class LogLicense(Log):
+    license = models.ForeignKey('license.License', on_delete=models.DO_NOTHING, related_name='license_user')
+
+    class Meta:
+        abstract = True
+
+
 class Config(Log):
     code = models.CharField(max_length=255, null=True)
     config = models.CharField(max_length=255, null=True)
