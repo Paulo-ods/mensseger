@@ -18,6 +18,7 @@ class Permission(core.models.LogLicense):
 class Group(core.models.LogLicense):
     group = models.CharField(max_length=255, primary_key=True)
     description = models.CharField(max_length=512, null=True)
+    principal_screen = models.CharField(max_length=255, null=True)
     order = models.IntegerField(null=True)
     group_parent = models.ForeignKey('self', on_delete=models.DO_NOTHING, null=True, related_name='self_group')
 
