@@ -2,7 +2,7 @@ import random
 
 import requests
 
-from BO.integration.integration import IntegrationBO
+from BO.coreBO.integration import IntegrationBO
 from DBA.integrationDBA.integrationDBA import IntegrationDBA
 from DBA.telegramDBA.telegramDBA import TelegramDBA
 

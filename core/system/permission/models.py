@@ -32,3 +32,7 @@ class PermissionGroup(core.models.LogLicense):
 
     class Meta:
         db_table = 'system_permission_group_related'
+
+#
+# class GroupUser(core.models.Log):
+#     group = models.ForeignKey('user.Profile')

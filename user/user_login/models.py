@@ -17,11 +17,9 @@ class UserLogin(Profile):
 
 
 class User(core.models.Log, PersonMeta):
-    username = models.CharField(max_length=255, primary_key=True)
+    licence = models.ForeignKey('license.License', on_delete=models.DO_NOTHING, null=True)
     # empresa = models.ForeignKey('empresa.Empresa', on_delete=models.DO_NOTHING, null=True, related_name='empresa_user')
     # endereco = models.ForeignKey('core.Endereco', on_delete=models.DO_NOTHING, null=True, related_name='endereco')
-
-
 
     class Meta:
         db_table = 'user'

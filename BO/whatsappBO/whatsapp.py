@@ -1,4 +1,4 @@
-from BO.integration.integration import IntegrationBO
+from BO.coreBO.integration import IntegrationBO
 from DBA.whatsappDBA.whatsappDBA import whatsappDBA
 
 
